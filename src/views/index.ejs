@@ -1,0 +1,36 @@
+<% include partials/header%>
+<div class="container">
+    <div class="row">
+        <!--Formulario-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action = "/add" method = "POST">
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="Inserta un titulo" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" cols="80" class="form-control" placeholder="Inserta la descripción" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Agregar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Lista-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>Nº</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Operaciones</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+    
+</div>
+<% include partials/footer%>
