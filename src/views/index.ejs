@@ -5,12 +5,14 @@
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <form action = "/add" method = "POST">
+                    <form action="add" method="post">
                         <div class="form-group">
-                            <input type="text" name="title" placeholder="Inserta un titulo" class="form-control" required>
+                            <input type="text" name="titulo" placeholder="Inserta un titulo" class="form-control"
+                                required>
                         </div>
                         <div class="form-group">
-                            <textarea name="description" cols="80" class="form-control" placeholder="Inserta la descripción" required></textarea>
+                            <textarea name="descripcion" cols="80" class="form-control" placeholder="Inserta la descripción"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
                             Agregar
@@ -28,9 +30,31 @@
                     <th>Descripción</th>
                     <th>Operaciones</th>
                 </thead>
+                <tbody>
+                    <%for(let i=0; i < tareas.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%=i+1%>
+                        </td>
+                        <td>
+                            <%=tareas[i].titulo%>
+                        </td>
+                        <td>
+                            <%=tareas[i].descripcion%>
+                        </td>
+                        </td>
+                        <td>
+                            <a href="/hecho/<%= tareas[i]._id %>" class="btn 
+                                <%= tareas[i].estado ? 'btn-primary' : 'btn-dark'%>" >
+                                Hecho
+                            </a>
+                            <a href="/eliminar/<%= tareas[i]._id %>" class="btn btn-secondary"> Eliminar</a>
+                            <a href="/editar/<%= tareas[i]._id %>" class="btn btn-info">Editar</a>
+                        </td>
+                        <%}%>
+                </tbody>
             </table>
         </div>
     </div>
-    
 </div>
 <% include partials/footer%>

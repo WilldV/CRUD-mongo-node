@@ -6,7 +6,7 @@ const app = express();
 
 //rutas
 const routes = require('./routes/index');
-app.use('/', routes);
+
 //configuracion
 app.set('port', process.env.PORT || 3000)
 app.set('views', path.join(__dirname,'views'))
@@ -21,6 +21,8 @@ mongoose.connect('mongodb://localhost/crud',{
 })
     .then(db => console.log('Conexion establecida'))
     .catch(err => console.log(err));
+
+app.use('/', routes);
 //iniciando servidor
 app.listen(app.get('port'), () =>{
     console.log(`Servidor en ${app.get('port')}`);
